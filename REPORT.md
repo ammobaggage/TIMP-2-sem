@@ -2,7 +2,7 @@
 
 1. Скачайте библиотеку *boost* с помощью утилиты **wget**. Адрес для скачивания `https://sourceforge.net/projects/boost/files/boost/1.69.0/boost_1_69_0.tar.gz`.
 
-Комманда: wget https://sourceforge.net/projects/boost/files/boost/1.69.0/boost_1_69_0.tar.gz
+Комманда: `wget https://sourceforge.net/projects/boost/files/boost/1.69.0/boost_1_69_0.tar.gz`
 
 Вывод:
 ```
@@ -23,40 +23,47 @@ boost_1_69_0.tar.gz             2%[>                                            
 
 
 2. Разархивируйте скаченный файл в директорию `~/boost_1_69_0`
-Комманда: tar -xf boost_1_69_0.tar.gz -C ~/boost_1_69_0
+
+Комманда: `tar -xf boost_1_69_0.tar.gz -C ~/boost_1_69_0`
 
 
 3. Подсчитайте количество файлов в директории `~/boost_1_69_0` **не включая** вложенные директории.
-Комманда: find ~/boost_1_69_0 -maxdepth 1 -type f | wc -l
+
+Комманда: `find ~/boost_1_69_0 -maxdepth 1 -type f | wc -l`
 
 Вывод: `12`
 
 
 4. Подсчитайте количество файлов в директории `~/boost_1_69_0` **включая** вложенные директории.
-Комманда: find ~/boost_1_69_0 -type f | wc -l
+
+Комманда: `find ~/boost_1_69_0 -type f | wc -l`
 
 Вывод: `61191`
 
 
 5. Подсчитайте количество заголовочных файлов, файлов с расширением `.cpp`, сколько остальных файлов (не заголовочных и не `.cpp`).
 #Заголовочные файлы имеют расширения .h и .hpp 
-Комманда: find ~/boost_1_69_0 -type f \( -name "*.h" -o -name "*.hpp" \) | wc -l
+
+Комманда: `find ~/boost_1_69_0 -type f \( -name "*.h" -o -name "*.hpp" \) | wc -l`
 
 Вывод: `15208`
 
 #Количество файлов с разрешением .cpp
-Комманда: find ~/boost_1_69_0 -type f -name "*.cpp" | wc -l
+
+Комманда: `find ~/boost_1_69_0 -type f -name "*.cpp" | wc -l`
 
 Вывод: `13774`
 
 #Остальные файлы (то-есть все, кроме тех, что имеют расширения: .cpp, .h, .hpp)
-Комманда: find ~/boost_1_69_0 -type f \( ! -name "*.h" -a ! -name "*.hpp" -a ! -name "*.cpp" \) | wc -l
+
+Комманда: `find ~/boost_1_69_0 -type f \( ! -name "*.h" -a ! -name "*.hpp" -a ! -name "*.cpp" \) | wc -l`
 
 Вывод: `32209`
 
 
 6. Найдите полный пусть до файла `any.hpp` внутри библиотеки *boost*.
-Команда: find ~/boost_1_69_0 -name "any.hpp"
+
+Команда: `find ~/boost_1_69_0 -name "any.hpp"`
 
 Вывод:
 ``` 
@@ -74,26 +81,30 @@ boost_1_69_0.tar.gz             2%[>                                            
 
 
 7. Выведите в консоль все файлы, где упоминается последовательность `boost::asio`.
-Комманда: grep -r "boost::asio" ~/boost_1_69_0 > result.txt
+Комманда: `grep -r "boost::asio" ~/boost_1_69_0 > result.txt`
 
-Вывод: https://gist.github.com/ammobaggage/19ee1d4695161a8dcf11cf6c995070ca
+[Вывод](https://gist.github.com/ammobaggage/19ee1d4695161a8dcf11cf6c995070ca)
 
 
 8. Скомпилируйте *boost*. Можно воспользоваться [инструкцией](https://www.boost.org/doc/libs/1_61_0/more/getting_started/unix-variants.html#or-build-custom-binaries) или [ссылкой](https://codeyarns.com/2017/01/24/how-to-build-boost-on-linux/).
-Комманды: 
+
+Комманды:
+```
 cd boost_1_69_0
 ./bootstrap.sh
 ./b2 --prefix=boost install >> ~/ammobaggage/workspace/reports/lab01/zxc.txt
-
-Вывод: https://gist.github.com/ammobaggage/99e1b40229089e0ef27b8cc334f275e9
+```
+[Вывод](https://gist.github.com/ammobaggage/99e1b40229089e0ef27b8cc334f275e9)
 
 
 9. Перенесите все скомпилированные на предыдущем шаге статические библиотеки в директорию `~/boost-libs`.
-Комманды: 
+
+Комманды:
+```
 mkdir ~/boost-libs
 cp lib/*.a ~/boost-libs
 ls ~/boost-libs
-
+```
 Вывод:
 ```
 libboost_atomic.a     libboost_filesystem.a  libboost_math_tr1l.a             libboost_stacktrace_basic.a
@@ -108,7 +119,8 @@ libboost_fiber.a      libboost_math_tr1f.a   libboost_stacktrace_backtrace.a  li
 
 
 10. Подсчитайте сколько занимает дискового пространства каждый файл в этой директории.
-Комманда: du -ah ~/boost-libs
+
+Комманда: `du -ah ~/boost-libs`
 
 Вывод:
 ```
@@ -149,7 +161,8 @@ libboost_fiber.a      libboost_math_tr1f.a   libboost_stacktrace_backtrace.a  li
 
 
 11. Найдите *топ10* самых "тяжёлых".
-Комманда: du -ah --apparent-size | sort -rh | head -n 10
+
+Комманда: `du -ah --apparent-size | sort -rh | head -n 10`
 
 Вывод:
 ```
@@ -165,5 +178,5 @@ libboost_fiber.a      libboost_math_tr1f.a   libboost_stacktrace_backtrace.a  li
 ```
 
 
-Карев Георгий
+[Карев Георгий](https://github.com/ammobaggage)
 ИУ8-21
