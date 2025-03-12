@@ -5,7 +5,7 @@
 Комманда: ```wget https://sourceforge.net/projects/boost/files/boost/1.69.0/boost_1_69_0.tar.gz```
 
 Вывод:
-```
+
 -2025-03-10 12:19:42--  https://downloads.sourceforge.net/project/boost/boost/1.69.0/boost_1_69_0.tar.gz?ts=gAAAAABnzq6sI8W-Q-E5pZ9lM3Fc9o4hreI29RTs79rbD-cHjlTES1pnOmZQmWAJB_TXVE0vhA6fYfQVkMqMao-VfzSMzLP2ZQ%3D%3D&use_mirror=deac-riga&r=
 Resolving downloads.sourceforge.net (downloads.sourceforge.net)... 104.18.13.149, 104.18.12.149, 2606:4700::6812:d95, ...
 Connecting to downloads.sourceforge.net (downloads.sourceforge.net)|104.18.13.149|:443... connected.
@@ -19,7 +19,7 @@ Length: 111710205 (107M) [application/x-gzip]
 Saving to: ‘boost_1_69_0.tar.gz’
 
 boost_1_69_0.tar.gz             2%[>                                                 ]   2.48M  3.19KB/s    eta 27m 24s 
-```
+
 
 
 2. Разархивируйте скаченный файл в директорию `~/boost_1_69_0`
